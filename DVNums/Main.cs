@@ -1,12 +1,16 @@
-﻿using System;
+using System;
 using System.Reflection;
+using System.Runtime;
+using dnlib;
 using HarmonyLib;
 using UnityModManagerNet;
 
-namespace MOD_NAME;
+namespace DVNums;
 
 public static class Main
 {
+	public static Settings Settings = null!;
+
 	// Unity Mod Manage Wiki: https://wiki.nexusmods.com/index.php/Category:Unity_Mod_Manager
 	private static bool Load(UnityModManager.ModEntry modEntry)
 	{
@@ -18,6 +22,9 @@ public static class Main
 			harmony.PatchAll(Assembly.GetExecutingAssembly());
 
 			// Other plugin startup logic
+			Settings = UnityModManager.ModSettings.Load<Settings>(modEntry);
+			modEntry.OnGUI = OnGUI;
+			modEntry.OnSaveGUI = OnSaveGUI;
 		}
 		catch (Exception ex)
 		{
@@ -27,5 +34,15 @@ public static class Main
 		}
 
 		return true;
+	}
+
+	static void OnGUI(UnityModManager.ModEntry modEntry)
+	{
+		Settings.Draw(modEntry);
+	}
+
+	static void OnSaveGUI(UnityModManager.ModEntry modEntry)
+	{
+		Settings.Save(modEntry);
 	}
 }

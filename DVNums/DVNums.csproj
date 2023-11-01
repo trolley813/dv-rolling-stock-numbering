@@ -1,15 +1,27 @@
 <Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
-		<AssemblyName>MOD_NAME</AssemblyName>
+		<AssemblyName>DVNums</AssemblyName>
 		<TargetFramework>net48</TargetFramework>
 		<LangVersion>latest</LangVersion>
 		<Nullable>enable</Nullable>
 		<WarningsAsErrors>CS8600;CS8602;CS8603</WarningsAsErrors>
 	</PropertyGroup>
+	<!-- Publicize fields -->
+	<ItemGroup>
+		<PackageReference Include="Krafs.Publicizer" Version="2.2.1">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+	</ItemGroup>
+	<ItemGroup>
+		<Publicize Include="Assembly-CSharp" IncludeCompilerGeneratedMembers="false" />
+	</ItemGroup>
 
 	<!-- Derail Valley -->
 	<ItemGroup>
 		<Reference Include="Assembly-CSharp"/>
+        <Reference Include="DV.ThingTypes"/>
+		<Reference Include="DV.Utils" />
 	</ItemGroup>
 
 	<!-- Unity -->
