@@ -26,3 +26,11 @@ All range ends (min and max) can be configured between 0 and 9999 (but be carefu
 
 ### Using with other mods
 This mod is compatible with Number Manager, but you probably would like to disable random numbering and disallow offsets for better experience (otherwise you probably won't need this mod at all).
+
+## Changelog
+
+### 1.1.0 - 2024-02-13
+- Added new model prefixes for the build 98 (including the BE2 microshunter)
+
+### 1.0.0 - 2023-11-01
+- First version

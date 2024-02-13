@@ -41,6 +41,10 @@ namespace DVNums
 					TrainCarType.LocoDH4 => "DH4",
 					TrainCarType.LocoDiesel => "DE6",
 					TrainCarType.LocoSteamHeavy => "S282",
+					TrainCarType.LocoMicroshunter => "BE2",
+					TrainCarType.HandCar => "H1",
+					TrainCarType.LocoDE6Slug => "E6S",
+					TrainCarType.Tender => "282T",
 					_ => "L"
 				};
 			}
