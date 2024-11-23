@@ -2,8 +2,8 @@
 	"Releases": [
 		{
 			"Id": "DVNums",
-			"Version": "1.0.0",
-			"DownloadUrl": "https://github.com/trolley813/dv-rolling-stock-numbering/releases/download/v1.0/FILE_NAME.zip"
+			"Version": "1.2.0",
+			"DownloadUrl": "https://github.com/trolley813/dv-rolling-stock-numbering/releases/download/v1.2/FILE_NAME.zip"
 		}
 	]
 }

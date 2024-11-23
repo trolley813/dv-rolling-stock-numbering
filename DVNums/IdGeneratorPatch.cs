@@ -27,8 +27,8 @@ namespace DVNums
 		
 		public static string GenerateCarID(TrainCarLivery carType)
 		{
-			StringBuilder stringBuilder = new StringBuilder();
-			bool isLoco = CarTypes.IsLocomotive(carType);
+			StringBuilder stringBuilder = new();
+			bool isLoco = CarTypes.IsLocomotive(carType) || CarTypes.IsSlug(carType) || CarTypes.IsTender(carType);
 			string locoPrefix = "L";
 			var settings = Main.Settings;
 			if (settings.PrefixingMode == PrefixingMode.ModelBased)
@@ -45,10 +45,12 @@ namespace DVNums
 					TrainCarType.HandCar => "H1",
 					TrainCarType.LocoDE6Slug => "E6S",
 					TrainCarType.Tender => "282T",
+					TrainCarType.LocoDM1U => "DM1",
+					TrainCarType.LocoRailbus => "DM1",
 					_ => "L"
 				};
 			}
-			stringBuilder.Append(isLoco ? locoPrefix : "C");
+			stringBuilder.Append((isLoco || locoPrefix != "L") ? locoPrefix : "C");
 			stringBuilder.Append(carType.parentType.carInstanceIdGenBase);
 			var (minNum, maxNum) = settings.NumberingMode switch
 			{
